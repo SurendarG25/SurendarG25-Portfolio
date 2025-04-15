@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surendar G - Portfolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- BOX ICONS -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        /* Project Overlay Styles */
+        .work__img {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .work__img:hover {
+            transform: translateY(-5px);
+        }
+        .work__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            width: 100%;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            font-size: 0.875rem;
+        }
+        .work__title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+        .work__img:hover .work__overlay {
+            opacity: 1;
+        }
+        
+        /* EmailJS Form Styles */
+        .contact__success {
+            background: #4CAF50;
+            color: white;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+            display: none;
+        }
+        
+        .contact__error {
+            background: #f44336;
+            color: white;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+            display: none;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .contact__button[disabled] {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        /* Social Buttons */
+        .contact__social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+        }
+
+        .social-button i {
+            font-size: 1.2rem;
+        }
+
+        .social-button.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            box-shadow: 0 2px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        .social-button.whatsapp:hover {
+            background: linear-gradient(135deg, #128C7E, #25D366);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .social-button.linkedin {
+            background: linear-gradient(135deg, #0A66C2, #0077B5);
+            box-shadow: 0 2px 10px rgba(10, 102, 194, 0.3);
+        }
+
+        .social-button.linkedin:hover {
+            background: linear-gradient(135deg, #0077B5, #0A66C2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(10, 102, 194, 0.4);
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .contact__social-buttons {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            .social-button {
+                width: auto;
+                padding: 0.8rem 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Surendar G</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home bd-grid" id="home">
+            <div class="home__data">
+                <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Surendar G</span><br> Software Developer</h1>
+                <a href="#contact" class="button">Contact</a>
+            </div>
+
+            <div class="home__social">
+                <a href="https://www.linkedin.com/in/surendar-g-b27205245" class="home__social-icon" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/SurendarG25" class="home__social-icon" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="mailto:surendarg3008@gmail.com" class="home__social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <div class="home__img">
+                <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <mask id="mask0" mask-type="alpha">
+                        <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                    </mask>
+                    <g mask="url(#mask0)">
+                        <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                        <image class="home__blob-img" x="50" y="60" href="assets/img/perfil.jpeg"/>
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!--===== ABOUT =====-->
+        <section class="about section" id="about">
+            <h2 class="section-title">About</h2>
+
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src="assets/img/about.jpeg" alt="Surendar G">
+                </div>
+                
+                <div>
+                    <h2 class="about__subtitle">I'm Surendar</h2>
+                    <p class="about__text">A passionate full-stack developer with a solid foundation in Python backend development and hands-on experience in building cross-platform mobile applications using Flutter and Dart. I enjoy crafting secure, scalable, and efficient applications that combine robust backend logic with clean and responsive UI. With a strong grip on Python, I've built multiple projects — including a 2D game using Pygame, showcasing my ability to work with graphics, user interaction, and logic-driven environments. I've also developed a Flutter mobile app that reflects my capability to merge smooth UI design with state management tools like Provider.</p>           
+                </div>                                   
+            </div>
+        </section>
+
+        <!--===== SKILLS =====-->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills__container bd-grid">
+                <div>
+                    <h2 class="skills__subtitle">Professional Skills</h2>
+                    <p class="skills__text">A versatile software developer with a strong focus on Python backend development and a growing skill set in Flutter for mobile applications. My expertise lies in building secure, scalable, and intelligent systems by leveraging technologies like Python, SQL, RESTful APIs, and cloud-based solutions. I've developed impactful projects such as a blockchain-powered blackbox data system that ensures tamper-proof storage and privacy, and a dynamic food ordering web app with real-time tracking and personalized recommendations.</p>
+
+                    <div class="skills__data">
+                        <div class="skills__names"><i class='bx bxl-html5 skills__icon'></i><span class="skills__name">HTML5 & CSS5</span></div>
+                        <div class="skills__bar skills__html"></div><div><span class="skills__percentage">95%</span></div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__names"><i class="fa-brands fa-python skills__icon"></i><span class="skills__name">PYTHON & MYSQL</span></div>
+                        <div class="skills__bar skills__css"></div><div><span class="skills__percentage">85%</span></div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__names"><i class='bx bx-mobile-alt skills__icon'></i><span class="skills__name">FLUTTER & DART</span></div>
+                        <div class="skills__bar skills__js"></div><div><span class="skills__percentage">65%</span></div>
+                    </div>
+
+                    <div class="skills__data">
+                        <div class="skills__names"><i class='bx bx-brain skills__icon'></i><span class="skills__name">ARTIFICIAL INTELLIGENCE</span></div>
+                        <div class="skills__bar skills__ux"></div><div><span class="skills__percentage">85%</span></div>
+                    </div>
+                </div>
+                <div><img src="assets/img/work5.jpg" alt="Skills Visualization" class="skills__img"></div>
+            </div>
+        </section>
+
+        <!--===== WORK =====-->
+        <section class="work section" id="work">
+            <h2 class="section-title">Projects</h2>
+            <div class="work__container bd-grid">
+                <a href="#" class="work__img">
+                    <img src="assets/img/work1.jpg" alt="Blockchain Project">
+                    <div class="work__overlay">
+                        <h3 class="work__title">Cost-Effectively Searchable Blackbox Data With Unlinkability Based on Public Blockchain</h3>
+                        <p class="work__description">Developed a blockchain system to ensure tamper-proof, anonymous blackbox data with secure, low-cost search functionality.</p>
+                    </div>
+                </a>
+                <a href="#" class="work__img">
+                    <img src="assets/img/work2.png" alt="Food Ordering Application">
+                    <div class="work__overlay">
+                        <h3 class="work__title">Food Ordering Application</h3>
+                        <p class="work__description">Built a web app with real-time restaurant menus, personalized recommendations, secure payments, and order tracking using HTML, CSS, Bootstrap, and MySQL.</p>
+                    </div>
+                </a>
+                <a href="#" class="work__img">
+                    <img src="assets/img/work3.jpg" alt="Fibonacci series game">
+                    <div class="work__overlay">
+                        <h3 class="work__title">Fibonacci Guessing Game (Pygame to APK)</h3>
+                        <p class="work__description">A Pygame-based Android app where players test their math skills by predicting Fibonacci sequences. Features dynamic UI, score tracking, and time pressure.</p>
+                    </div>
+                </a>
+                <a href="#" class="work__img">
+                    <img src="assets/img/work4.png" alt="Inventory management">
+                    <div class="work__overlay">
+                        <h3 class="work__title">Flutter Inventory Management UI with API Integration</h3>
+                        <p class="work__description">Designed a clean, responsive Flutter UI for an inventory management app, integrating REST APIs for product CRUD operations, stock tracking and sales data. Used Provider for state management and Dio for API calls. Demonstrates strong UI/UX skills.</p>
+                    </div>
+                </a>
+                <a href="#" class="work__img">
+                    <img src="assets/img/work5.jpg" alt="Future Project">
+                    <div class="work__overlay">
+                        <h3 class="work__title">Coming Soon</h3>
+                        <p class="work__description">Next-gen apps launching soon.</p>
+                    </div>
+                </a>
+                <a href="#" class="work__img">
+                    <img src="assets/img/work6.jpg" alt="Future Project">
+                    <div class="work__overlay">
+                        <h3 class="work__title">Coming Soon</h3>
+                        <p class="work__description">New projects are under development.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact__container bd-grid">
+                <div class="contact__info">
+                    <h3 class="section-subtitle">Resume</h3>
+                    <a href="./assets/files/Surendar_G_Resume.pdf" download class="button">
+                        <i class="fas fa-file-download"></i> Download Resume (PDF)
+                    </a>
+
+                    <h3 class="section-subtitle" style="margin-top: 2rem;">Contact Details</h3>
+                    <div class="contact__detail"><i class="fas fa-user contact__icon"></i><span class="contact__text">Surendar G</span></div>
+                    <div class="contact__detail"><i class="fas fa-envelope contact__icon"></i><a href="mailto:surendarg3008@gmail.com" class="contact__text">surendarg3008@gmail.com</a></div>
+                    <div class="contact__detail"><i class="fas fa-phone contact__icon"></i><a href="tel:+917904863563" class="contact__text">+91 79048 63563</a></div>
+                
+                    <div class="contact__social-buttons">
+                        <a href="https://www.linkedin.com/in/surendar-g-b27205245" target="_blank" class="social-button linkedin">
+                            <i class='bx bxl-linkedin'></i> LinkedIn
+                        </a>
+                        <a href="https://wa.me/917904863563" target="_blank" class="social-button whatsapp">
+                            <i class='bx bxl-whatsapp'></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="contact__form">
+                    <input type="text" id="name" name="name" placeholder="Name" class="contact__input" required>
+                    <input type="email" id="email" name="email" placeholder="Email" class="contact__input" required>
+                    <textarea id="message" name="message" cols="0" rows="10" class="contact__input" placeholder="Your message" required></textarea>
+                    <input type="submit" value="Send Message" class="contact__button button">
+                    <div id="success-message" class="contact__success">Thank you! Your message has been sent.</div>
+                    <div id="error-message" class="contact__error">Failed to send message. Please try again later.</div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">Surendar G</p>
+        <div class="footer__social">
+            <a href="https://www.instagram.com/call_me_as_noiseless_boy_?igsh=MXNodDIxOWhhMWRiZg==" class="footer__icon" target="_blank"><i class='bx bxl-instagram'></i></a>
+            <a href="https://www.linkedin.com/in/surendar-g-b27205245" class="footer__icon" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/SurendarG25" class="footer__icon" target="_blank"><i class='bx bxl-github'></i></a>
+        </div>
+        <p class="footer__copy">&#169; <span id="year"></span> Surendar G. All rights reserved</p>
+    </footer>
+    
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your public key
+        (function() {
+            emailjs.init('WUlrR725UboITWKTQ'); // Replace with your actual EmailJS public key
+        })();
+        
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('input[type="submit"]');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            // Show loading state
+            submitBtn.value = 'Sending...';
+            submitBtn.disabled = true;
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Send email using EmailJS
+            emailjs.sendForm('service_ia5lct5', 'template_toym27h', form)
+                .then(function(response) {
+                    // Success
+                    submitBtn.value = 'Message Sent!';
+                    successMessage.style.display = 'block';
+                    form.reset();
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.value = 'Send Message';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                }, function(error) {
+                    // Error
+                    submitBtn.value = 'Send Message';
+                    submitBtn.disabled = false;
+                    errorMessage.style.display = 'block';
+                    console.error('EmailJS Error:', error);
+                });
+        });
+    </script>
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
